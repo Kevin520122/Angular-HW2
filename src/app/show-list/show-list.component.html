@@ -1,0 +1,14 @@
+<!-- <app-search-bar (emitFirst)="searchByFirstName($event)"></app-search-bar> -->
+<p>Search by first Name 
+    <input type="text" name="firstName" [(ngModel)]="fName" /> 
+</p>
+<h3><span (click)="setOrder()">First Name</span>  Last Name  Department  Salary  Join Date</h3>
+<ul>
+    <app-record 
+    *ngFor="let record of showList | search: fName | sort: isAscending"
+    [record] = "record"
+    
+    >
+</app-record>
+</ul>
+<button (click)="reset()">Reset</button>
